@@ -1,0 +1,11 @@
+---
+- name: install
+  hosts: tiangong
+  remote_user: root
+  tasks:
+  - name: install tomcat 
+    yum: name=tomcat state=latest
+  - name: copy file to webapp
+    copy: src=files/WaterGaugeDetectorService.war dest=/var/lib/tomcat/webapp/
+  - name: start tomcat
+    service: name=tomcat state=restart

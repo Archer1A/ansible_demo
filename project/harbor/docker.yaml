@@ -1,0 +1,12 @@
+---
+- name: install docker 
+  remote_user: root
+  hosts: harbor
+  tasks:
+  - name: install yum manager tool
+    yum: name=yum-utils state=latest
+  - name: add mirrors
+    yum_repository:
+      name: docker 
+      description: docker yum repo
+      baseurl: https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo

@@ -1,0 +1,8 @@
+- name: create user
+  hosts: webservers
+  user: root
+  vars:
+  - user: "test"
+  tasks: create a user name is test
+  - name: create user
+    user: name="{{ user }}" 
